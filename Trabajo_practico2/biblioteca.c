@@ -61,15 +61,103 @@ int addEmployee(Employee* eEmployee,
     return retorno;
 }
 
-int findEmployeeById(Employee* eEmployee, int len,int idE)
+int modifyEmployee(Employee* eEmployee, int len)
+{
+    int opcionesSegundoMenu;
+    char mod;
+    int ret=-1;
+    int posId;
+    char salary[50];
+    float auxSal;
+    char sector[50];
+    int auxSec;
+    int i;
+    int posPrueba=0;
+
+    for(i=0;i<cant;i++)
+    {
+        if(eEmployee[i].isEmpty != -1)
+        {
+            printf("ID disponibles: %d\n",eEmployee[i].id);
+        }
+    }
+    if(!searchId(eEmployee, len, &posId))
+    {
+        do
+        {
+            system("cls");
+            printf("\n *---------------------------------------------* \n");
+
+            printf("\n *                                             *\n");
+
+            printf("\n *   5. Nombre.                                *\n");
+
+            printf("\n *                                             *\n");
+
+            printf("\n *   6. Apellido.                              *\n");
+
+            printf("\n *                                             *\n");
+
+            printf("\n *   7. Salario.                               *\n");
+
+            printf("\n *                                             *\n");
+
+            printf("\n *   8. Sector.                                *\n");
+
+            printf("\n *                                             *\n");
+
+            printf("\n *---------------------------------------------* \n");
+
+            printf("\n Ingrese opcion que quiera modificar: \n");
+            scanf("%d",&opcionesSegundoMenu);
+            system("cls");
+            switch(opcionesSegundoMenu)
+            {
+            case 5:
+                getName(eEmployee[posPrueba].name,"\n Modifique el nombre: \n","\nerror, vuelva a ingresar\n\n",2,20,1);
+                break;
+            case 6:
+                getName(eEmployee[posPrueba].lastName,"\n Modifique el apellido: \n","\nerror, vuelva a ingresar\n\n",2,20,1);
+                break;
+            case 7:
+                getFloat("\n Modifique el salario: \n","\n error,vuelva a intentar\n",0,10,1,salary);
+                auxSal=atof(salary);
+                eEmployee[posPrueba].salary=auxSal;
+                break;
+            case 8:
+                getInt("\n Modifique el sector: \n","\n error,vuelva a intentar",1,2,1,sector);
+                auxSec=atoi(sector);
+                eEmployee[posPrueba].sector=auxSec;
+                break;
+            }
+            printf("\n Quiere modificar otro campo?\n   s/para continuar n/para salir\n");
+            scanf("%s",&mod);
+            system("cls");
+        }
+        while(mod=='s');
+        ret=0;
+    }
+    else
+    {
+        printf("No se encontro ID");
+    }
+    return ret;
+}
+
+int findEmployeeById(Employee* eEmployee, int len,int* idE)
 {
     int i;
     int ret=-1;
+    Employee auxEmployee;
+    printf("\n Buscar ID: \n");
+    scanf("%d", &auxEmployee.id);
+
     for(i=0;i<len;i++)
     {
-        if(eEmployee[i].id==idE)
+        if(eEmployee[i].id == auxEmployee.id)
         {
-            ret=i;
+            ret = 0;
+            *idE = i;
             break;
         }
     }
