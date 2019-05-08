@@ -34,6 +34,7 @@
 		<Unit filename="ArrayEmployees.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="ArrayEmployees.h" />
 		<Unit filename="biblioteca.c">
 			<Option compilerVar="CC" />
 		</Unit>

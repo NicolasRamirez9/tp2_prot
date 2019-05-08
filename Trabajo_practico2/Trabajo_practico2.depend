@@ -5,7 +5,7 @@
 	<string.h>
 	"utn_strings.h"
 
-1556890939 c:\users\e5eee78\desktop\trabajo_practico2\utn_strings.h
+1557338074 c:\users\e5eee78\desktop\trabajo_practico2\utn_strings.h
 
 1556891854 source:c:\users\e5eee78\desktop\trabajo_practico2\arrayemployees.c
 	<stdio.h>
@@ -15,8 +15,12 @@
 
 1556893779 c:\users\e5eee78\desktop\trabajo_practico2\biblioteca.h
 
-1556808052 source:c:\users\e5eee78\desktop\trabajo_practico2\main.c
+1557242519 source:c:\users\e5eee78\desktop\trabajo_practico2\main.c
 	<stdio.h>
 	<stdlib.h>
-	"biblioteca.h"
+	<string.h>
+	"ArrayEmployees.h"
+	"utn_strings.h"
+
+1557334972 c:\users\e5eee78\desktop\trabajo_practico2\arrayemployees.h
 

@@ -16,6 +16,7 @@ int getStringAlphanumeric (char* pStr, char* msg, char* msgE,int reintentos);
 int getTelephone (char* pStr, char* msg, char* msgE,int reintentos);
 int getDni (char* pStr, char* msg, char* msgE,int reintentos);
 int getCuit (char* pStr, char* msg, char* msgE,int reintentos);
+int getName(char* pStr, char* msg, char* msgE,int minimo,int maximo,int reintentos);
 
 int findEmptyPlace (char pArray[][20],int* pIndex,int len);
 int findName(char* name, char parray[][20], int len, int* pIndex);

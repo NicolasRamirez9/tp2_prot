@@ -269,6 +269,39 @@ int getCuit (char* pStr, char* msg, char* msgE,int reintentos)
     return ret;
 }
 
+int getName(char* pStr, char* msg, char* msgE,int minimo,int maximo,int reintentos)
+{
+    int ret = -1;
+    char bufferStr[4000];
+    if(msg != NULL && msgE != NULL && pStr != NULL && reintentos >=0 && maximo > minimo)
+    {
+        if(!getString(msg,msgE,minimo,maximo,reintentos,bufferStr))
+        {    printf("ent");
+            if(isValidName(bufferStr))
+            {
+                strncpy(pStr, bufferStr, maximo);
+                ret = 0;
+            }
+        }
+    }
+    return ret;
+}
+
+int isValidName(char* cadena)
+{
+    int ret = 1;
+    int i;
+    for(i=0; cadena[i] != '\0'; i++)
+    {
+        if((cadena[i] > 'Z' || cadena[i] < 'A') && (cadena[i] > 'z' || cadena[i] < 'a'))
+        {
+            ret = 0;
+            break;
+        }
+    }
+    return ret;
+}
+
 int findEmptyPlace (char pArray[][20],int* pIndex,int len)
 {
     int i;
