@@ -2,59 +2,78 @@
 #include <stdlib.h>
 #include <string.h>
 #include "utn_strings.h"
+#include "ArrayEmployees.h"
 
 
+int getString(char* msg,char* msgE,int minimo,int maximo,int reintentos,char* resultado)
+{
+    int ret = -1;
+    char bufferStr[400];
+    if(msg != NULL && msgE != NULL && resultado != NULL && reintentos >=0 && maximo > minimo)
+    {
+        do
+        {
+            printf("\n%s",msg);
+            __fpurge(stdin);
+            fgets(bufferStr,sizeof(bufferStr),stdin);
+            bufferStr[strlen(bufferStr)-1] = '\0';
+            if(strlen(bufferStr) >= minimo && strlen(bufferStr)<maximo)
+            {
+                strncpy(resultado,bufferStr,maximo);
+                ret = 0;
+                break;
+            }
+            else
+            {
+                printf("\n%s",msgE);
+            }
+            reintentos --;
+        }
+        while(reintentos>0);
+    }
+    return ret;
+}
 
-int getString(char* pStr, char* msg, char*msgE)
+
+int getInt(char *msg, char *msgE, int minimo, int maximo, int reintentos, char *resultado)
 {
     char bufferStr[20];
-    printf("%s",msg);
-    fgets(bufferStr,sizeof(bufferStr),stdin);
-    bufferStr[strlen(bufferStr)-1] = '\0';
-    if(pStr!=NULL)
+    int ret = -1;
+    while(retorno == -1 && reintentos > 0)
     {
-        strncpy(pStr,bufferStr,sizeof(bufferStr));
-    }
-    return 0;
-}
-
-
-int getInt (int *pNum, char* msg, char* msgE)
-
-{
-    int number;
-    int ret=-1;
-    printf("%s",msg);
-    if(scanf("%d",&number)==1)
-    {
-        (*pNum)=number;
-        ret=0;
-    }
-    else
-    {
-        printf("%s",msgE);
-        fflush(stdin);
-        //fpurge(stdin);
+        if(!getString(msg, msgE, minimo, maximo, reintentos, bufferStr)&&(resultado != NULL)&&(isValidint(bufferStr)))
+        {
+            strncpy(resultado,bufferStr,sizeof(bufferStr));
+            ret = 0;
+        }
+        else
+        {
+            printf("%s",mensajeE);
+            ret = -1;
+        }
     }
     return ret;
 }
 
-int getFloat (float *pNum, char* msg, char* msgE)
-
+int getFloat(char *msg, char *msgE, char minimo, char maximo, int reintentos, char *resultado)
 {
-    float number;
-    int ret=-1;
-    printf("%s",msg);
-    if(scanf("%f",&number)==1)
+    char bufferStr[20];
+    int ret = -1;
+    while(ret == -1 && reintentos > 0)
     {
-        (*pNum)=number;
-        ret=0;
-    }
-    else
-    {
-        printf("%s",msgE);
+        if(!getString(msg, msgE, minimo, maximo, reintentos, bufferStr)&&(isValidFloat(bufferStr)))
+        {
+            strncpy(resultado,bufferStr,sizeof(bufferStr));
+            ret = 0;
+        }
+        else
+        {
+            printf("%s", msgE);
+            ret = -1;
+        }
     }
     return ret;
+
 }
 
 int getIntInRange(  int *pNum,

@@ -14,13 +14,19 @@ struct
 
 int initEmployees(Employee* eEmployee, int len);
 
+int spaceFinderInTheArray(Employee* eEmployee,int len,int* index);
+
 int addEmployee(Employee* eEmployee, int len,int posLibre);
 
-int findEmployeeById(Employee* eEmployee, int len,int idE);
+int modifyEmployee(Employee* eEmployee, int len);
 
-int removeEmployee(Employee* eEmployee, int len, char* msgE,int tries);
+int findEmployeeById(Employee* eEmployee, int len,int* idE);
 
-int sortEmployees(Employee* eEmployee, int len);
+int removeEmployee(Employee* eEmployee, int len);
+
+int sortEmployeesUpward(Employee* eEmployee, int len);
+
+int sortEmployeesFalling(Employee* eEmployee, int len);
 
 int printEmployees(Employee* eEmployee, int len);
 

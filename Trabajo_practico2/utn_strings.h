@@ -1,11 +1,11 @@
 #ifndef UTN_STRINGS_H_INCLUDED
 #define UTN_STRINGS_H_INCLUDED
 
-int getString(char* pStr, char* msg, char*msgE);
-int getInt (int *pNum, char* msg, char* msgE);
-int getFloat (float *pNum, char* msg, char* msgE);
+int getString(char* msg,char* msgE,int minimo,int maximo,int reintentos,char* resultado);
+int getInt(char *msg, char *msgE, int minimo, int maximo, int reintentos, char *resultado);
+int getFloat(char *msg, char *msgE, char minimo, char maximo, int reintentos, char *resultado);
 
-int getIntInRange (int *pNum,char *msg,char *msgE,int minimo,int maximo,int reintentos);
+int getIntInRange (int* pNum,char* msg,char *msgE,int minimo,int maximo,int reintentos);
 int cargarArraySecuencialInt(int* pArray,int len,char* msg, char* msgE);
 int cargarArraySecuencialFloat(float* pArray,int len,char* msg, char* msgE);
 
